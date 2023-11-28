@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const {Schema, model} = mongoose;
 
 const bookSchema = new Schema({
-    cover: Image,
+    cover: String,
     title: String,
     author: String,
     year: Number,

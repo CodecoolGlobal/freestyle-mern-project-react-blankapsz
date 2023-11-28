@@ -1,9 +1,37 @@
 import mongoose from "mongoose";
 import express from "express";
+import Book from './model/Book.js'
 
 
 const app = express();
 app.use(express.json());
+
+app.post('/api/books', (req, res) => {
+  console.log(req.body);
+  const {
+    imageUrl,
+    title,
+    author,
+    year,
+    review,
+  } = req.body;
+  const createdAt = Date.now()
+ 
+  const newBook = new Book({
+    imageUrl,
+    title,
+    author,
+    year,
+    review,
+    createdAt
+  })
+  newBook.save()
+    .then(book => res.json(book))
+    .catch(error => res.status(400).json({success: false}))
+
+  
+  return res.send({ state: 'DONE'})
+})
 
 mongoose
   .connect(
