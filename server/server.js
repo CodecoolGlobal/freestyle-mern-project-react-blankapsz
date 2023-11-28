@@ -1,9 +1,19 @@
 import mongoose from "mongoose";
 import express from "express";
-
+import Book from "./model/Book.js";
 
 const app = express();
 app.use(express.json());
+
+app.get("/api/book", async (req, res) => {
+    try{
+        const books = await Book.find();
+        res.json(books);
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+})
+
 
 mongoose
   .connect(
