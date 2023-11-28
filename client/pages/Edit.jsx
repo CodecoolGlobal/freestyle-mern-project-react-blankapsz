@@ -45,7 +45,7 @@ export default function Edit() {
     year: Number,
     review: String,
     createdAt: Date*/
-
+//csak a gergo kedveert
   return (
     <form className="upload" onSubmit={handleSubmit}>
       <h3 className="upload-head">Add a book to your collection</h3>
