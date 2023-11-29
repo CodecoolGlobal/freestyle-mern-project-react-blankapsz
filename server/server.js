@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import express from "express";
 import Book from './model/Book.js'
 
-
 const app = express();
 app.use(express.json());
 
@@ -15,24 +14,25 @@ app.post('/api/books', (req, res) => {
     year,
     review,
   } = req.body;
-  const createdAt = Date.now()
- 
+
   const newBook = new Book({
     imageUrl,
     title,
     author,
     year,
     review,
-    createdAt
   })
   newBook.save()
     .then(book => res.json(book))
     .catch(error => res.status(400).json({success: false}))
 
-  
-  return res.send({ state: 'DONE'})
 })
 
+app.delete('/api/books/:id', async (req, res) => {
+  const id = req.params.id;
+  const book = await Book.findOneAndDelete({ _id : id})
+  res.send(book)
+})
 
 app.get("/api/book", async (req, res) => {
     try{
