@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Edit() {
   const [imageUrl, setImageUrl] = useState("");
@@ -6,6 +6,49 @@ export default function Edit() {
   const [author, setAuthor] = useState("");
   const [year, setYear] = useState("");
   const [review, setReview] = useState("");
+  const [books, setBooks] = useState([]);
+  const [selectedBook, setSelectedBook] = useState(null);
+
+  useEffect(() => {
+    async function fetchBooks() {
+      const response = await fetch("/api/book");
+      const books = await response.json();
+      setBooks(books);
+    }
+    fetchBooks();
+  }, [books]);
+
+  function handleBookSelect(e) {
+    const selectedBookTitle = e.target.value;
+    const book = books.find((book) => book.title === selectedBookTitle);
+    setSelectedBook(book);
+  
+  }
+
+  function handleEdit() {
+    
+  }
+
+ 
+  async function handleDelete(e, id) {
+    console.log(id)
+    try {
+      const response = await fetch(`/api/books/${id}`, {
+        method: 'DELETE'
+      });
+      if (response.ok) {
+        const deletedBook = await response.json();
+        setBooks((books) => {
+          return books.filter((book) => book._id !== id)
+        })
+        console.log(deletedBook);
+      } else {
+        console.error('Failed to delete the book');
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleSubmit = async (e) => {
     console.log("from edit page, hanndleSubmit");
@@ -18,7 +61,7 @@ export default function Edit() {
       year,
       review,
     };
-    
+
     try {
       const response = await fetch("/api/books", {
         method: "POST",
@@ -45,47 +88,69 @@ export default function Edit() {
     year: Number,
     review: String,
     createdAt: Date*/
-//csak a gergo kedveert
+  //csak a gergo kedveert
   return (
-    <form className="upload" onSubmit={handleSubmit}>
-      <h3 className="upload-head">Add a book to your collection</h3>
+    <div>
+      <form className="upload" onSubmit={handleSubmit}>
+        <h3 className="upload-head">Add a book to your collection</h3>
 
-      <label className="upload-labels">Cover image URL: </label>
-      <input
-        type="text"
-        onChange={(e) => setImageUrl(e.target.value)}
-        value={imageUrl}
-      />
+        <label className="upload-labels">Cover image URL: </label>
+        <input
+          type="text"
+          onChange={(e) => setImageUrl(e.target.value)}
+          value={imageUrl}
+        />
 
-      <label className="upload-labels">Title: </label>
-      <input
-        type="text"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-      />
+        <label className="upload-labels">Title: </label>
+        <input
+          type="text"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+        />
 
-      <label className="upload-labels">Author: </label>
-      <input
-        type="text"
-        onChange={(e) => setAuthor(e.target.value)}
-        value={author}
-      />
+        <label className="upload-labels">Author: </label>
+        <input
+          type="text"
+          onChange={(e) => setAuthor(e.target.value)}
+          value={author}
+        />
 
-      <label className="upload-labels">Year: </label>
-      <input
-        type="number"
-        onChange={(e) => setYear(e.target.value)}
-        value={year}
-      />
+        <label className="upload-labels">Year: </label>
+        <input
+          type="number"
+          onChange={(e) => setYear(e.target.value)}
+          value={year}
+        />
 
-      <label className="upload-labels">My description: </label>
-      <input
-        type="text"
-        onChange={(e) => setReview(e.target.value)}
-        value={review}
-      />
+        <label className="upload-labels">My description: </label>
+        <input
+          type="text"
+          onChange={(e) => setReview(e.target.value)}
+          value={review}
+        />
 
-      <button className="addBook">Add this book</button>
-    </form>
+        <button className="addBook">Add this book</button>
+      </form>
+      <select onChange={handleBookSelect} value={selectedBook ? selectedBook.title : ""}>
+        <option value="" disabled>Select a book</option>
+        {books.map((book, index) => (
+          <option key={book.id || index} onClick={() => setSelectedBook(book)}>
+            {book.title}
+          </option>
+        ))}
+      </select>
+      {selectedBook && (
+        <div>
+          <h1>{selectedBook.title}</h1>
+          <h3>Author: {selectedBook.author}</h3>
+          <h3>Published in: {selectedBook.year}</h3>
+          <p>Review: {selectedBook.review}</p>
+          <button onClick={handleEdit}>EDIT</button>
+          <button onClick={(e) => handleDelete(e, selectedBook._id)}>DELETE</button>
+        </div>
+      )}
+    </div>
   );
 }
+
+
