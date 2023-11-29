@@ -8,7 +8,7 @@ app.use(express.json());
 app.post('/api/books', (req, res) => {
   console.log(req.body);
   const {
-    imageUrl,
+    cover,
     title,
     author,
     year,
@@ -16,7 +16,7 @@ app.post('/api/books', (req, res) => {
   } = req.body;
 
   const newBook = new Book({
-    imageUrl,
+    cover,
     title,
     author,
     year,

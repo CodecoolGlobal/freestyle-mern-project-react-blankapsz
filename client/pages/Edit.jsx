@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function Edit() {
-  const [imageUrl, setImageUrl] = useState("");
+  const [cover, setCover] = useState("");
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [year, setYear] = useState("");
@@ -55,7 +55,7 @@ export default function Edit() {
     e.preventDefault();
 
     const bookPost = {
-      imageUrl,
+      cover,
       title,
       author,
       year,
@@ -97,8 +97,8 @@ export default function Edit() {
         <label className="upload-labels">Cover image URL: </label>
         <input
           type="text"
-          onChange={(e) => setImageUrl(e.target.value)}
-          value={imageUrl}
+          onChange={(e) => setCover(e.target.value)}
+          value={cover}
         />
 
         <label className="upload-labels">Title: </label>
