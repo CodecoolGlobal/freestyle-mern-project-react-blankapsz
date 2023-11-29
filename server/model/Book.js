@@ -9,8 +9,8 @@ const bookSchema = new Schema({
     author: String,
     year: Number,
     review: String,
-    createdAt: Date
-})
+    
+},)
 
 const Book = model('Book', bookSchema);
 export default Book;
