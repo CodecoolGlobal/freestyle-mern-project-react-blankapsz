@@ -43,7 +43,19 @@ app.get("/api/book", async (req, res) => {
     }
 })
 
-
+app.patch("/api/books/:id", async (req, res, next) => {
+  console.log(req.body);
+  try {
+    const {id}= req.params
+    const book = await Book.findByIdAndUpdate(
+      id, req.body, {new: true}
+      );
+      console.log(req.params);
+    return res.json(book);
+  } catch (err) {
+    return next(err);
+  }
+});
 
 mongoose
   .connect(
