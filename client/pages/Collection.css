@@ -1,0 +1,32 @@
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .book {
+    font-size: 15px;
+    margin-bottom: 20px; /* Adjust as needed */
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .book {
+      width: 45%; /* Adjust as needed for smaller screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .book {
+      width: 100%; /* Adjust as needed for even smaller screens */
+    }
+  }

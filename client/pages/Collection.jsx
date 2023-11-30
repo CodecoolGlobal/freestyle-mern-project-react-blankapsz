@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import "./Collection.css";
 
 export default function Collection() {
 
@@ -24,7 +25,7 @@ export default function Collection() {
     {books.map((book, index) => (
       <div key={book.id || index} className="book">
         <img src={book.cover} alt="cover" height={400} />
-        <h1>{book.title}</h1>
+        <h2>{book.title}</h2>
         <h3>Author: {book.author}</h3>
         <h3>Published in: {book.year}</h3>
         <p>Review: {book.review}</p>
