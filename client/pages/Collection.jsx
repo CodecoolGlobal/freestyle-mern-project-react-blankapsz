@@ -19,7 +19,7 @@ export default function Collection() {
   }, []);
 
   return (
-    <>{isLoading ? <div className="loading"><h1>Loading...</h1></div>
+    <><h1>My Book Collection</h1>{isLoading ? <div className="loading"><h1>Loading...</h1></div>
      : 
      <div className="books">
     {books.map((book, index) => (
