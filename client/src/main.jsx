@@ -10,16 +10,18 @@ import Books from '../pages/Collection.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>
+    element: <App></App>,
+    children: [
+      {
+        path: "/edit",
+        element: <Edit />
+      },
+      {
+        path: '/collection',
+        element: <Books />
+      }
+    ]
   },
-  {
-    path: "/edit",
-    element: <Edit />
-  },
-  {
-    path: '/collection',
-    element: <Books />
-  }
 
   
 ]);
