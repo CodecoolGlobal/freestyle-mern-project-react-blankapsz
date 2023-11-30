@@ -23,3 +23,16 @@
   margin-top: 10px;
   text-align: center;
 }
+
+.dropZone {
+  color: beige;
+  margin: auto;
+  width: 200px;
+  padding: 50px;
+  border: 1px solid #333;
+  background: rgba(0,0,0,0.7);
+}
+
+.drop-container {
+  justify-content: center;
+}

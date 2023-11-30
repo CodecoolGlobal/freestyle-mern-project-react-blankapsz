@@ -42,7 +42,7 @@ export default function Edit() {
 
   const handleSubmit = async (e) => {
     console.log("from edit page, hanndleSubmit");
-    e.preventDefault();
+   // e.preventDefault();
 
     const bookPost = {
       cover,
@@ -97,7 +97,7 @@ export default function Edit() {
   let draggedItem = null;
   const handleDragStart = (e) => {
     draggedItem = e.target;
-    console.log("brrrrrrrrrrrr", draggedItem);
+    console.log("start", draggedItem);
   };
 
   const handleDragOver = (e) => {
@@ -105,7 +105,7 @@ export default function Edit() {
   };
 
   const handleDrop = async (e, id) => {
-    e.preventDefault();
+  //  e.preventDefault();
     console.log("dropped");
     try {
       const response = await fetch(`/api/books/${id}`, {
