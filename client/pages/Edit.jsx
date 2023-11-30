@@ -23,7 +23,7 @@ export default function Edit() {
     }
     fetchBooks();
   }, []);
-
+  
   function handleBookSelect(e) {
     const selectedBookTitle = e.target.value;
     const book = books.find((book) => book.title === selectedBookTitle);
@@ -38,32 +38,11 @@ export default function Edit() {
   function handleEdit() {
     setIsEdit(true);
   }
-
- 
-  async function handleDelete(e, id) {
-    console.log(id)
-    try {
-      const response = await fetch(`/api/books/${id}`, {
-        method: 'DELETE'
-      });
-      if (response.ok) {
-        const deletedBook = await response.json();
-        setBooks((books) => {
-          return books.filter((book) => book._id !== id)
-        })
-        console.log(deletedBook);
-      } else {
-        console.error('Failed to delete the book');
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+  
   const handleSubmit = async (e) => {
     console.log("from edit page, hanndleSubmit");
     e.preventDefault();
-
+    
     const bookPost = {
       cover,
       title,
@@ -112,7 +91,38 @@ export default function Edit() {
     } catch (error) {
       console.error(error);
     }
+    
+  }
+  
+  let draggedItem = null;
+  const handleDragStart = (e) => {
+    draggedItem = e.target;
+    console.log('brrrrrrrrrrrr', draggedItem);
+  }
 
+  const handleDragOver = (e) => {
+    e.preventDefault()
+  }
+
+  const handleDrop = async(e, id) => {
+    e.preventDefault()
+    console.log('dropped');
+    try {
+      const response = await fetch(`/api/books/${id}`, {
+        method: 'DELETE'
+      });
+      if (response.ok) {
+        const deletedBook = await response.json();
+        setBooks((books) => {
+          return books.filter((book) => book._id !== id)
+        })
+        console.log(deletedBook);
+      } else {
+        console.error('Failed to delete the book');
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -211,17 +221,19 @@ export default function Edit() {
         </div>
       ) : (
       selectedBook && (
-        <div>
+        <div draggable className={selectedBook._id} onDragStart={(e) => handleDragStart(e)}>
           <h1>{selectedBook.title}</h1>
           <h3>Author: {selectedBook.author}</h3>
           <h3>Published in: {selectedBook.year}</h3>
           <p>Review: {selectedBook.review}</p>
           <button onClick={handleEdit}>EDIT</button>
-          <button onClick={(e) => handleDelete(e, selectedBook._id)}>DELETE</button>
         </div>
 
       )
       )}
+      <div className="drop-container">
+      <div className="dropZone" onDrop={(e) => handleDrop(e, draggedItem.className)} onDragOver={(e) => handleDragOver(e)}>Drop here to delete</div>
+      </div>
     </div>
   );
 }
