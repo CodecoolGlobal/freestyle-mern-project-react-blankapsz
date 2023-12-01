@@ -31,7 +31,7 @@ export default function Collection() {
         <p>Review: {book.review}</p>
       </div>
     ))}
-    <Link to={"/edit"}>EDIT</Link>
+  
   </div>}
 
     </>
