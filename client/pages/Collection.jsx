@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Collection.css";
 
@@ -22,8 +21,8 @@ export default function Collection() {
     <><h1>My Book Collection</h1>{isLoading ? <div className="loading"><h1>Loading...</h1></div>
      : 
      <div className="books">
-    {books.map((book, index) => (
-      <div key={book.id || index} className="book">
+    {books.map((book) => (
+      <div key={book._id} className="book">
         <img src={book.cover} alt="cover" height={400} />
         <h2>{book.title}</h2>
         <h3>Author: {book.author}</h3>
@@ -31,7 +30,6 @@ export default function Collection() {
         <p>Review: {book.review}</p>
       </div>
     ))}
-  
   </div>}
 
     </>
