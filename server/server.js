@@ -47,7 +47,7 @@ app.delete("/api/books/:id", async (req, res) => {
 
 app.get("/api/book", async (req, res) => {
   try {
-    const books = await Book.find().populate("user").sort({title: "desc"});
+    const books = await Book.find().populate("user").sort({ title: "desc" });
     res.json(books);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -67,9 +67,19 @@ app.patch("/api/books/:id", async (req, res, next) => {
   console.log(req.body);
   try {
     const { id } = req.params;
-    const book = await Book.findByIdAndUpdate(id, req.body, { new: true });
-    console.log(req.params);
-    return res.json(book);
+    if (req.body.borrower) {
+      const book = await Book.findByIdAndUpdate(id, req.body, { new: true });
+      console.log(req.params);
+      return res.json(book);
+    } else {
+      console.log("valami");
+      const book = await Book.findByIdAndUpdate(
+        id,
+        { $unset: { borrower: 1 } },
+        { new: true }
+      );
+      return res.json(book);
+    }
   } catch (err) {
     return next(err);
   }

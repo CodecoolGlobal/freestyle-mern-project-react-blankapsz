@@ -66,7 +66,7 @@ export default function Collection() {
               <h4>Owner: {book.user.name}</h4>
               <label>Borrowed by:</label>
               <select
-                value={book.borrower ?? ""}
+                value={book.borrower ?? undefined}
                 onChange={(e) =>
                   handleBorrowerChange(e.target.value, i, book._id)
                 }
