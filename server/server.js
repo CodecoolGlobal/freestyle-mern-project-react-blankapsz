@@ -24,14 +24,18 @@ app.post('/api/books', (req, res) => {
   })
   newBook.save()
     .then(book => res.json(book))
-    .catch(error => res.status(400).json({success: false}))
+    .catch(error => next(error))
 
 })
 
 app.delete('/api/books/:id', async (req, res) => {
-  const id = req.params.id;
-  const book = await Book.findOneAndDelete({ _id : id})
-  res.send(book)
+  try {
+    const id = req.params.id;
+    const book = await Book.findOneAndDelete({ _id : id})
+    res.send(book)
+  } catch (error) {
+    
+  }
 })
 
 app.get("/api/book", async (req, res) => {
