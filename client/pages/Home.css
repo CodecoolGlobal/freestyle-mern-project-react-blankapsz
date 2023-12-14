@@ -1,0 +1,41 @@
+#welcome{
+  color:  #8da683;
+  background-color: #fff;
+}
+#registersign{
+  color:  #8da683;
+  background-color: #fff;
+}
+
+#username{
+  font-size: 25px;
+  color:  #8da683;
+  background-color: #fff;
+}
+
+#usernameinput{
+  height: 30px;
+}
+
+#home-container{
+  background-color: #fff;
+  width: 50%;
+border: 0.2px solid #8da683;
+padding: 20px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns, adjust as needed */
+  grid-template-rows: auto auto; /* Two rows, adjust as needed */
+  gap: 20px; /* Adjust the gap between grid items */
+  align-items: center;
+  justify-content: center;
+  box-shadow: -6px 0px 74px -7px rgba(255,200,0,0.63);
+-webkit-box-shadow: -6px 0px 74px -7px rgba(255,200,0,0.63);
+-moz-box-shadow: -6px 0px 74px -7px rgba(255,200,0,0.63);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+}
+
