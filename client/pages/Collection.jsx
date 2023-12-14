@@ -46,8 +46,10 @@ export default function Collection() {
   }
 
   return (
-    <>
+    <div id="main">
+      
       <h1>My Book Collection</h1>
+      
       {isLoading ? (
         <div className="loading">
           <h1>Loading...</h1>
@@ -56,8 +58,8 @@ export default function Collection() {
         <div className="books">
           {books.map((book, i) => (
             <div key={book._id} className="book">
-              <img src={book.cover} alt="cover" height={400} />
               <h2>{book.title}</h2>
+              <img src={book.cover} alt="cover" height={400} />
               <h3>Author: {book.author}</h3>
               <h3>Published in: {book.year}</h3>
               <p>Review: {book.review}</p>
@@ -83,6 +85,6 @@ export default function Collection() {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
