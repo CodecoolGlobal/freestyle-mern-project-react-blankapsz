@@ -33,7 +33,6 @@ export default function Collection() {
     ))}
     <Link to={"/edit"}>EDIT</Link>
   </div>}
-
     </>
   );
 }
