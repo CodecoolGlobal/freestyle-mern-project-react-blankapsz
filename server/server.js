@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 import express from "express";
-import Book from "./model/Book.js";
-import User from "./model/User.js";
+import Book from './model/Book.js'
+require('dotenv').config();
+
+const mongoUri = process.env.MONGODB_URI.replace('<username>', process.env.MONGO_USER).replace('<password>', process.env.MONGO_PASS);
 
 const app = express();
 app.use(express.json());
@@ -72,7 +74,6 @@ app.patch("/api/books/:id", async (req, res, next) => {
       console.log(req.params);
       return res.json(book);
     } else {
-      console.log("valami");
       const book = await Book.findByIdAndUpdate(
         id,
         { $unset: { borrower: 1 } },
@@ -87,7 +88,7 @@ app.patch("/api/books/:id", async (req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://pasztorblanka:MKCjZB4gcgdmfBsf@cluster0.iovev7l.mongodb.net/?retryWrites=true&w=majority"
+    mongoUri
   )
   .then(() => {
     app.listen(3000, () => {

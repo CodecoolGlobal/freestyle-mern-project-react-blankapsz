@@ -7,7 +7,6 @@ function App() {
     <div className="root-layout">
       <header id="header">
         <nav id="navbar">
-          
           <NavLink to="/">Home</NavLink>
           <NavLink to="/collection">Collection</NavLink>
           <NavLink to="/edit">Edit Collection</NavLink>

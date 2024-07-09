@@ -7,7 +7,6 @@ import Edit from '../pages/Edit.jsx';
 import Books from '../pages/Collection.jsx';
 import Home from '../pages/Home.jsx';
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/edit",
-        element: <Edit />
+        element: <Edit /> 
       },
       {
         path: '/collection',
@@ -27,8 +26,6 @@ const router = createBrowserRouter([
       },
     ]
   },
-
-  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

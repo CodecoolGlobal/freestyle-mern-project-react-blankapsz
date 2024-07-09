@@ -53,9 +53,7 @@ export default function Edit() {
   }
 
   const handleSubmit = async () => {
-    console.log("from edit page, hanndleSubmit");
-   // e.preventDefault();
-
+   // e.preventDefault();    
     const bookPost = {
       cover,
       title,
@@ -119,7 +117,6 @@ export default function Edit() {
 
   const handleDrop = async (e, id) => {
   //  e.preventDefault();
-    console.log("dropped");
     try {
       const response = await fetch(`/api/books/${id}`, {
         method: "DELETE",
