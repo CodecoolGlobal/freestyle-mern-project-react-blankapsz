@@ -74,7 +74,6 @@ app.patch("/api/books/:id", async (req, res, next) => {
       console.log(req.params);
       return res.json(book);
     } else {
-      console.log("valami");
       const book = await Book.findByIdAndUpdate(
         id,
         { $unset: { borrower: 1 } },
