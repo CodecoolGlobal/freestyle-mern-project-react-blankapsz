@@ -1,35 +1,55 @@
 .books {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-  }
-  h1{
-    color: 	#8da683;
-  }
-  .book {
-    font-size: 15px;
-    background-color: #dc8920;
-    margin-bottom: 20px; /* Adjust as needed */
-    padding: 15px;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  row-gap: 28px;
+}
+
+#main{
+  background-image: url('https://img.freepik.com/free-vector/three-blank-shelves-cartoon-style-isolated-white-background_1308-48526.jpg');
+  background-size: cover;
+  background-position: center 65px;
+margin-left: -30px;
+margin-right: -30px;
+
+}
+
+h1{
+  color:  #8da683;
+  background-color: #fff;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  background-color: #dc8920;
+  width: 200px;
+
+  margin: 0 5px 20px 5px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 3%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 20%;
+  max-height: 290px;
+  overflow: auto;
   
-  .book img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .book {
-      width: 45%; /* Adjust as needed for smaller screens */
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .book {
-      width: 100%; /* Adjust as needed for even smaller screens */
-    }
-  }
+}
+
+.book img {
+  width: 100%;
+  margin-bottom: 10px;
+  min-height: 38vh;
+  max-height: 38vh;
+}
+
+.book h2, h3, p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+

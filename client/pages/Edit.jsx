@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import "./Edit.css";
 
+async function fetchUsers() {
+   const response = await fetch("/api/users");
+  const users = await response.json();
+  return users;
+}
+
 export default function Edit() {
   const [cover, setCover] = useState("");
   const [title, setTitle] = useState("");
@@ -15,6 +21,9 @@ export default function Edit() {
   const [books, setBooks] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
   const [isEdit, setIsEdit] = useState(false);
+  const [users, setUsers] = useState(null);
+  const [selectedUser, setSelectedUser] = useState("");
+  console.log(users);
 
   useEffect(() => {
     async function fetchBooks() {
@@ -23,6 +32,9 @@ export default function Edit() {
       setBooks(books);
     }
     fetchBooks();
+    fetchUsers().then(users => {
+      setUsers(users);
+    })
   }, []);
 
   function handleBookSelect(e) {
@@ -48,6 +60,7 @@ export default function Edit() {
       author,
       year,
       review,
+      user: selectedUser,
     };
 
     try {
@@ -154,6 +167,16 @@ export default function Edit() {
           onChange={(e) => setYear(e.target.value)}
           value={year}
         />
+        <br />
+
+        <select value={selectedUser} onChange={(e) => setSelectedUser(e.target.value)}>
+          <option value="" disabled>Select a user...</option>
+          {users && users.map((user) => (
+            <option key={user._id} value={user._id}>{user.name}</option>
+          ))}
+
+        </select>
+
         <br />
         <br />
         <label className="upload-labels">My description: </label>
