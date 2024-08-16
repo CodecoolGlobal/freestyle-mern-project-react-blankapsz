@@ -27,15 +27,12 @@
 ## About The Project
 <h3>Our project is a book catalog site where users can swap and track their books effortlessly. Developed during the fifth month of the Codecool bootcamp, this application allows users to manage their book collections, initiate swaps with other users, and keep track of their book inventory. The technology stack includes React for the frontend, Node.js and Express for the backend, and MongoDB for the database, ensuring a seamless and efficient user experience.</h3>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a name="#readme-top">back to top</a>)</p>
 
 ## Contributors
 - [Blanka Pasztor](https://github.com/blankapsz)
-  <h3>Description coming soon...</h3>
 - [Gergo Korodi](https://github.com/korodigergo)
-  <h3>Description coming soon...</h3>
 - [Levente Hrabetz](https://github.com/grindlevi)
-  <h3>In this project, I contributed to designing the entities for MongoDB, ensuring a robust and efficient database structure. My primary focus was on implementing a drag-and-drop feature for deleting items, which I am particularly proud of, given it was developed during an early stage of my schooling. </h3>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -71,7 +68,8 @@
    npm install
    ```
 3. Backend Setup:
-Create and configure the .env file with your MongoDB database credentials.
+Create and configure the .env file with your MongoDB database credentials in the root directory.
+![image](https://github.com/user-attachments/assets/62f3ec5c-65c3-40fd-a31d-b3ea506ce309)
 
 5. Run backend
 
@@ -87,6 +85,7 @@ Add a Favorite Book:
 
 Find a book in the catalog.
 Click "Add to Favorites" on the book's detail page.
+
 Remove a Favorite Book:
 
 Go to your "Favorites" list.
