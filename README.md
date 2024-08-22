@@ -33,7 +33,7 @@
 - [Blanka Pasztor](https://github.com/blankapsz)
   <h3>Description coming soon...</h3>
 - [Gergo Korodi](https://github.com/korodigergo)
-  <h3>Description coming soon...</h3>
+  <h3>I was responsible for implementing the main design of the application, along with crafting the navigation bar and login page."</h3>
 - [Levente Hrabetz](https://github.com/grindlevi)
   <h3>In this project, I contributed to designing the entities for MongoDB, ensuring a robust and efficient database structure. My primary focus was on implementing a drag-and-drop feature for deleting items, which I am particularly proud of, given it was developed during an early stage of my schooling. </h3>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
