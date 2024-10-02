@@ -25,7 +25,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<h3>Our project is a book catalog site where users can swap and track their books effortlessly. Developed during the fifth month of the Codecool bootcamp, this application allows users to manage their book collections, initiate swaps with other users, and keep track of their book inventory. The technology stack includes React for the frontend, Node.js and Express for the backend, and MongoDB for the database, ensuring a seamless and efficient user experience.</h3>
+<p>Our project is a book catalog site where users can swap and track their books effortlessly. Developed during the fifth month of the Codecool bootcamp, this application allows users to manage their book collections, initiate swaps with other users, and keep track of their book inventory. The technology stack includes React for the frontend, Node.js and Express for the backend, and MongoDB for the database, ensuring a seamless and efficient user experience.</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -35,7 +35,7 @@
 - [Gergo Korodi](https://github.com/korodigergo)
   <h3>Description coming soon...</h3>
 - [Levente Hrabetz](https://github.com/grindlevi)
-  <h3>In this project, I contributed to designing the entities for MongoDB, ensuring a robust and efficient database structure. My primary focus was on implementing a drag-and-drop feature for deleting items, which I am particularly proud of, given it was developed during an early stage of my schooling. </h3>
+  <p>In this project, I contributed to designing the entities for MongoDB, ensuring a robust and efficient database structure. My primary focus was on implementing a drag-and-drop feature for deleting items, which I am particularly proud of, given it was developed during an early stage of my schooling. </p>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -55,12 +55,6 @@
 <p>npm install dotenv</p>
 <p>MongoDB database set up</p>
 
-<p>Frontend Setup: </p>
-<ul>
-  <li>cd client</li>
-  <li>npm install</li>
-</ul>
-
 ### Installation
 1. Clone the repo
    ```sh
@@ -70,12 +64,13 @@
    ```sh
    npm install
    ```
+
 3. Backend Setup:
 Create and configure the .env file with your MongoDB database credentials.
 
-5. Run backend
+4. Run backend
 
-6. Navigate to the client folder and run this command:
+5. Navigate to the client folder and run this command:
    ```sh
    npm run dev
    ```
@@ -97,6 +92,7 @@ Manage your favorite books easily with these simple steps!
 <!-- CONTACT -->
 ## Contact
 Levente Hrabetz - grindlevi@gmail.com
+Kóródi Gergő - k.geri131@gmail.com
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
